@@ -1,0 +1,121 @@
+/* تنسيق عام */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* تنسيق الهيدر */
+header {
+    background-color: #2d3e50;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* تنسيق الرئيسية */
+main {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.btn {
+    background-color: #2d3e50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #1c2c3f;
+}
+
+/* تنسيق الفوتر */
+footer {
+    background-color: #2d3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* تنسيق النماذج */
+.form-container {
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    width: 85%;
+    background-color: #2d3e50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1c2c3f;
+}
