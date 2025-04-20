@@ -1,6 +1,8 @@
 <?php
 include '../db_connect.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $job_id = $_GET['id'];
 $result = $conn->query("SELECT * FROM job_posts WHERE id = $job_id");
@@ -11,10 +13,10 @@ $row = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>تفاصيل الوظيفة - <?= htmlspecialchars($row['title'] ?? '') ?></title>
-    
+    <link rel="stylesheet" href="../css/header.css">
     <!-- استدعاء خط Cairo من Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
-
+    <?php include '../header.php'?>
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -66,6 +68,7 @@ $row = $result->fetch_assoc();
             background-color: #004475;
         }
     </style>
+  
 </head>
 <body>
     <div class="job-container">

@@ -1,6 +1,8 @@
 <?php
 include '../db_connect.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $job_id = $_POST['job_id'];
     $user_id = $_SESSION['user_id'];

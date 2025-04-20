@@ -1,6 +1,8 @@
 <?php
 include '../db_connect.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $result = $conn->query("SELECT * FROM job_posts");
 ?>
 <!DOCTYPE html>
@@ -8,7 +10,7 @@ $result = $conn->query("SELECT * FROM job_posts");
 <head>
     <meta charset="UTF-8">
     <title>تصفح الوظائف</title>
-
+    <link rel="stylesheet" href="../css/header.css">
     <!-- استدعاء خط كايرو من Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
 
@@ -63,6 +65,7 @@ $result = $conn->query("SELECT * FROM job_posts");
             text-decoration: underline;
         }
     </style>
+        <?php include '../header.php'?>
 </head>
 <body>
 

@@ -1,23 +1,19 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'job_seeker') {
-    header("Location: ../loginSeekerjob");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>لوحة تحكم الباحث عن عمل</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <?php include '../header.php'; ?>
     <style>
         body {
             font-family: 'Cairo', sans-serif;
             background-color: #f4f6f8;
             margin: 0;
             padding: 0;
-            direction: rtl;
+            direction: ltr;
+
         }
 
         .dashboard-container {
@@ -46,6 +42,8 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'job_seeker') {
         }
 
         a {
+            border-color: rgb(36, 37, 39);
+            border-radius: 2px;
             text-decoration: none;
             color: #005b96;
             font-size: 18px;
@@ -59,11 +57,14 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'job_seeker') {
 </head>
 <body>
 
+
+
 <div class="dashboard-container">
     <h1>مرحبًا بك، باحث عن عمل</h1>
     <ul>
-        <li><a href="browse_jobs.php">تصفح الوظائف</a></li>
-        <li><a href="my_applications.php">طلباتي</a></li>
+        <li><a href="browse_jobs.php">تصفح الوظائف </a></li>
+        <li><a href="my_applications.php">طلباتي </a></li>
+        <li><a href="update_account.php">ملفي الشخصي  </a></li>
     </ul>
 </div>
 

@@ -1,13 +1,17 @@
-<header>
-<link rel="stylesheet" href="css/styles.css">
-        <img src="logo.png" alt="شعار الموقع" class="logo">
-        <nav>
-            <ul>
-                <li><a href="home.php">الرئيسية</a></li>
-                <li><a href="#">الوظائف</a></li>
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();} ?>
+<header class="site-header">
+    <img src="../logo.png" alt="شعار الموقع" class="logo">
+    <nav>
+        <ul>
+            <li><a href="home.php">الرئيسية</a></li>
+
+            <?php if (!isset($_SESSION['user_id'])): ?>
                 <li><a href="register.php">التسجيل</a></li>
                 <li><a href="loginSeekerjob.php">تسجيل الدخول</a></li>
-                 
-            </ul>
-        </nav>
-    </header>
+            <?php else: ?>
+                <li><a href="logout.php">تسجيل الخروج</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</header>

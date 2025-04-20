@@ -1,6 +1,8 @@
 <?php
 include '../db_connect.php';
-session_start(); // ✅ لازم قبل أي استخدام لـ $_SESSION
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} // ✅ لازم قبل أي استخدام لـ $_SESSION
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];

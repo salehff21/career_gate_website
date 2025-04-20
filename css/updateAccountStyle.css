@@ -1,98 +1,78 @@
  
-/* إعدادات أساسية */
 body {
-    direction: rtl;
-    font-family: 'Cairo', sans-serif; /* تعيين الخط هنا */
-    background-color: #f4f7fc;
+    font-family: 'Cairo', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .container {
+    max-width: 600px;
+    margin: 40px auto;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
     padding: 30px;
-    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    margin-bottom: 30px;
+    color: #005b96;
+}
+
+.form-group {
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
 }
 
 label {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
     display: block;
+    margin-bottom: 6px;
+    color: #333;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="file"],
 textarea {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 10px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    font-size: 15px;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-    border-color: #007bff;
-    outline: none;
+textarea {
+    resize: vertical;
+    height: 100px;
 }
 
-input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
+input[type="submit"],
+button {
     width: 100%;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
+    padding: 12px;
+    background-color: #005b96;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #003f73;
 }
 
-textarea {
+img.profile-picture {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    width: 100px;
     height: 100px;
-    resize: vertical;
+    object-fit: cover;
 }
-
-/* تحسين التنسيق على الأجهزة الصغيرة */
-@media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
-}
-
-/* إضافة فواصل وتنسيق جيد بين الحقول */
-.form-group {
-    margin-bottom: 20px;
-}
-
+ 
 /* التنسيق مع الأخطاء أو الرسائل الناجحة */
 .success-message {
     color: #28a745;
@@ -107,10 +87,4 @@ textarea {
     font-size: 16px;
     margin-top: 15px;
 }
- 
-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 15px; /* لضبط المسافة بين الصورة والنص */
-}
+  

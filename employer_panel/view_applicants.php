@@ -1,6 +1,8 @@
 <?php
 include 'db.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $job_id = $_GET['job_id'];
 $result = $conn->query("SELECT * FROM applications WHERE job_id = $job_id");
 ?>

@@ -1,0 +1,38 @@
+.site-header {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    direction: ltr;
+    background-color: #2d3e50;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.site-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.site-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.site-header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

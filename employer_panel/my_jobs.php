@@ -1,6 +1,8 @@
 <?php
 include '../db_connect.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $employer_id = $_SESSION['user_id'];
 $result = $conn->query("SELECT * FROM job_posts WHERE user_id = $employer_id");
 ?>
