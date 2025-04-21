@@ -5,55 +5,9 @@
     <title>لوحة تحكم الباحث عن عمل</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/jobSeeker_dashboard.css">
     <?php include '../header.php'; ?>
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 0;
-            direction: ltr;
-
-        }
-
-        .dashboard-container {
-            max-width: 500px;
-            margin: 100px auto;
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: #005b96;
-            font-size: 26px;
-            margin-bottom: 30px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 20px 0;
-        }
-
-        a {
-            border-color: rgb(36, 37, 39);
-            border-radius: 2px;
-            text-decoration: none;
-            color: #005b96;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    
 </head>
 <body>
 

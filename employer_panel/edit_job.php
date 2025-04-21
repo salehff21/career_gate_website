@@ -28,71 +28,12 @@ $row = $result->fetch_assoc();
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <?php include '../header.php'; ?>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/edit_job.css">
     <title>تعديل الوظيفة</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            direction: rtl;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 80px auto;
-            background-color: #fff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #005b96;
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            font-size: 16px;
-            color: #333;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        button {
-            margin-top: 25px;
-            background-color: #005b96;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #004475;
-        }
-    </style>
+    
 </head>
 <body>
 

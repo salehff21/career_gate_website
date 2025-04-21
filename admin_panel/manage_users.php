@@ -10,6 +10,23 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'Admin') {
 }
 
 $users = $conn->query("SELECT * FROM users");
+
+// عرض رسالة حسب الرابط
+if (isset($_GET['msg'])) {
+    $messages = [
+        'deleted' => ['تم حذف المستخدم بنجاح ✅', 'success'],
+        'error' => ['حدث خطأ أثناء حذف المستخدم ❌', 'error'],
+        'notfound' => ['المستخدم غير موجود 🔍', 'error'],
+        'invalid' => ['طلب حذف غير صالح ⚠️', 'error'],
+        'updated' => ['تم تغيير نوع المستخدم بنجاح ✅', 'success']
+    ];
+    if (array_key_exists($_GET['msg'], $messages)) {
+        [$text, $type] = $messages[$_GET['msg']];
+        echo "<script>window.onload = function() {
+            showMessage('$text', '$type');
+        };</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -17,52 +34,9 @@ $users = $conn->query("SELECT * FROM users");
     <meta charset="UTF-8">
     <title>إدارة المستخدمين</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-            direction: rtl;
-        }
-
-        h2 {
-            text-align: center;
-            color: #005b96;
-            font-size: 28px;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 90%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        th {
-            background-color: #005b96;
-            color: white;
-        }
-
-        a {
-            color: #d9534f;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/manage_user.css">
+    <?php include '../header.php'; ?>
 </head>
 <body>
 
@@ -75,22 +49,43 @@ $users = $conn->query("SELECT * FROM users");
         <th>البريد الإلكتروني</th>
         <th>النوع</th>
         <th>الإجراء</th>
+        <th>تغيير النوع</th>
     </tr>
     <?php while ($row = $users->fetch_assoc()): ?>
     <tr>
         <td><?= $row['id'] ?></td>
         <td><?= htmlspecialchars($row['name']) ?></td>
         <td><?= htmlspecialchars($row['email']) ?></td>
-        
+        <td>
+            <?php
+            $types = [
+                'Admin' => 'مدير',
+                'company' => 'شركة',
+                'job_seeker' => 'باحث عن عمل'
+            ];
+            echo $types[$row['user_type']] ?? 'غير معروف';
+            ?>
+        </td>
         <td>
             <a href="delete_user.php?id=<?= $row['id'] ?>" onclick="return confirm('هل أنت متأكد من حذف هذا المستخدم؟')">حذف</a>
+        </td>
+        <td>
+            <form method="POST" action="change_user_type.php" style="display: inline-block;">
+                <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                <select name="user_type">
+                    <option value="admin" <?= $row['user_type'] === 'admin' ? 'selected' : '' ?>>مدير</option>
+                    <option value="company" <?= $row['user_type'] === 'company' ? 'selected' : '' ?>>شركة</option>
+                    <option value="job_seeker" <?= $row['user_type'] === 'job_seeker' ? 'selected' : '' ?>>باحث عن عمل</option>
+                </select>
+                <button type="submit">تغيير</button>
+            </form>
         </td>
     </tr>
     <?php endwhile; ?>
 </table>
 
+<!-- سكربت الرسائل -->
+<script src="../showMessage.js"></script>
+
 </body>
 </html>
-git config --global user.name "salehff21"
-git config --global user.email "salehff21@gmail.com"
-

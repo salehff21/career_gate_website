@@ -16,53 +16,10 @@ $jobs = $conn->query("SELECT * FROM job_posts");
 <head>
     <meta charset="UTF-8">
     <title>إدارة الوظائف</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <?php include '../header.php'; ?>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-            direction: rtl;
-        }
-
-        h2 {
-            text-align: center;
-            color: #005b96;
-            font-size: 28px;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 90%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        th {
-            background-color: #005b96;
-            color: white;
-        }
-
-        a {
-            color: #d9534f;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+   <link rel="stylesheet" href="../css/manage_job.css">
 </head>
 <body>
 
