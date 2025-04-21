@@ -19,6 +19,7 @@
         <li><a href="browse_jobs.php">تصفح الوظائف </a></li>
         <li><a href="my_applications.php">طلباتي </a></li>
         <li><a href="update_account.php">ملفي الشخصي  </a></li>
+        <li><a href="upload_cv.php">رفع السيرة الذاتية   </a></li>
     </ul>
 </div>
 
