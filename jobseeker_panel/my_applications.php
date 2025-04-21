@@ -16,7 +16,7 @@ $user_id = $_SESSION['user_id'];
 $query = "SELECT a.*, j.title 
           FROM applications a 
           JOIN job_posts j ON a.job_id = j.id 
-          WHERE a.id = $user_id";
+          WHERE a.user_id = $user_id";
 $result = $conn->query($query);
 
 // التحقق من نجاح الاستعلام

@@ -71,25 +71,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
  <!DOCTYPE html>
+ 
 <html lang="ar" dir="rtl">
-<head>
+
+<header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تعديل الملف الشخصي</title>
-
+    <?php include '../header.php'; ?>
     <!-- خطوط وتنسيقات -->
     <link rel="stylesheet" href="../css/updateAccountStyle.css">
     <link rel="stylesheet" href="../css/header.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
- 
-</head>
+
+</header>
 
 <body>
-
-    <!-- ✅ الهيدر هنا داخل body -->
-    <?php include '../header.php'; ?>
-
-    <div class="container">
+  <div class="container">
         <h2>تعديل الملف الشخصي</h2>
 
         <form action="" method="POST" enctype="multipart/form-data">
