@@ -126,11 +126,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <option value="">-- اختر نوع الحساب --</option>
                 <option value="job_seeker">باحث عن وظيفة</option>
                 <option value="company">شركة</option>
+                <option value="Admin">Admin</option>
             </select>
 
             <button type="submit">تسجيل</button>
         </form>
+
         <p>لديك حساب بالفعل؟ <a href="loginSeekerjob.php">سجل الدخول</a></p>
     </div>
+    <style>body {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 500; /* Cairo Medium */
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+</style>
 </body>
 </html>

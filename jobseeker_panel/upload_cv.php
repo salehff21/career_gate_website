@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'student') {
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'job_seeker') {
     echo "<script>window.onload = function() {
         showMessage('يجب تسجيل الدخول كطالب لرفع السيرة الذاتية.', 'error');
     }</script>";
@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['resume'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رفع السيرة الذاتية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/header.css">
     <style>
         body {
             font-family: 'Cairo', sans-serif;

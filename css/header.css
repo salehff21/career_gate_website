@@ -1,5 +1,6 @@
 .site-header {
     font-family: 'Cairo', sans-serif;
+    font-weight: 500; /* Cairo Medium */
     direction: rtl;
     background-color: #2d3e50;
     color: white;

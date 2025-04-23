@@ -6,13 +6,24 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $job_id = $_GET['job_id'] ?? 0;
 
+// معالجة زر القبول أو الرفض
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['accept_id'])) {
+        $application_id = intval($_POST['accept_id']);
+        $conn->query("UPDATE applications SET status = 'مقبول' WHERE id = $application_id");
+    } elseif (isset($_POST['reject_id'])) {
+        $application_id = intval($_POST['reject_id']);
+        $conn->query("UPDATE applications SET status = 'مرفوض' WHERE id = $application_id");
+    }
+}
+
 // استعلام لجلب بيانات المتقدمين من جدول التطبيقات وجدول المستخدمين
 $query = "
-     SELECT u.name, u.email, r.file_path AS resume
-FROM applications a
-JOIN users u ON a.user_id = u.id
-LEFT JOIN resumes r ON r.student_id = u.id
-WHERE a.job_id =  $job_id;
+    SELECT a.id AS application_id, a.status, u.name, u.email, r.file_path AS resume
+    FROM applications a
+    JOIN users u ON a.user_id = u.id
+    LEFT JOIN resumes r ON r.student_id = u.id
+    WHERE a.job_id = $job_id;
 ";
 $result = $conn->query($query);
 ?>
@@ -68,6 +79,46 @@ $result = $conn->query($query);
             text-decoration: underline;
         }
 
+        .btn-accept {
+            padding: 6px 12px;
+            font-size: 14px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+        }
+
+        .btn-accept:hover {
+            background-color: #218838;
+        }
+
+        .btn-reject {
+            padding: 6px 12px;
+            font-size: 14px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+        }
+
+        .btn-reject:hover {
+            background-color: #c82333;
+        }
+
+        .accepted {
+            color: green;
+            font-weight: bold;
+        }
+
+        .rejected {
+            color: red;
+            font-weight: bold;
+        }
+
         .no-data {
             text-align: center;
             color: #999;
@@ -86,6 +137,8 @@ $result = $conn->query($query);
         <th>الاسم</th>
         <th>البريد الإلكتروني</th>
         <th>السيرة الذاتية</th>
+        <th>الحالة</th>
+        <th>الإجراء</th>
     </tr>
     <?php while ($row = $result->fetch_assoc()): ?>
     <tr>
@@ -96,6 +149,25 @@ $result = $conn->query($query);
                 <a href="<?= htmlspecialchars($row['resume']) ?>" target="_blank">عرض السيرة الذاتية</a>
             <?php else: ?>
                 لا توجد سيرة ذاتية
+            <?php endif; ?>
+        </td>
+        <td class="<?= $row['status'] === 'مقبول' ? 'accepted' : ($row['status'] === 'مرفوض' ? 'rejected' : '') ?>">
+            <?= $row['status'] ?? 'قيد المعالجة' ?>
+        </td>
+        <td>
+            <?php if ($row['status'] !== 'مقبول' && $row['status'] !== 'مرفوض'): ?>
+                <form method="POST" style="display:inline-block">
+                    <input type="hidden" name="accept_id" value="<?= $row['application_id'] ?>">
+                    <button type="submit" class="btn-accept">قبول</button>
+                </form>
+                <form method="POST" style="display:inline-block">
+                    <input type="hidden" name="reject_id" value="<?= $row['application_id'] ?>">
+                    <button type="submit" class="btn-reject">رفض</button>
+                </form>
+            <?php else: ?>
+                <span class="<?= $row['status'] === 'مقبول' ? 'accepted' : 'rejected' ?>">
+                    <?= $row['status'] === 'مقبول' ? 'تم القبول' : 'مرفوض' ?>
+                </span>
             <?php endif; ?>
         </td>
     </tr>

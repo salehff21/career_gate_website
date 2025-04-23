@@ -2,7 +2,7 @@
 // ملف الاتصال بقاعدة البيانات db.php
  
 $host = "localhost";
-$dbname = "job_portal";
+$dbname = "job_portal_v2";
 $username = "root";
 $password1 = "";
  // الاتصال بقاعدة البيانات

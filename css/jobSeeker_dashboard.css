@@ -1,6 +1,7 @@
  
         body {
             font-family: 'Cairo', sans-serif;
+            font-weight: 500; /* Cairo Medium */
             background-color: #f4f6f8;
             margin: 0;
             padding: 0;
