@@ -51,7 +51,7 @@ if ($user && isset($user['password']) && password_verify($password, $user['passw
         </form>
         <p>ليس لديك حساب؟ <a href="../register.php">سجل الآن</a></p>
     
-        <button type="#" style="margin: 12px;" onclick="window.location.href='../admin_panal/login.php';">تسجيل الدخول مدير الموقع</button>
+        <button type="#" style="margin: 12px;" onclick="window.location.href='../admin_panel/login.php';">تسجيل الدخول مدير الموقع</button>
         <button type="#"style="margin: 12px;" onclick="window.location.href='../loginSeekerjob.php';">تسجيل الدخول باحث عن وظيفة</button>
 
     </div>
