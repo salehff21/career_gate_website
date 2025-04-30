@@ -124,8 +124,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <select name="account_type" required>
                 <option value="">-- اختر نوع الحساب --</option>
-                <option value="job_seeker">باحث عن وظيفة</option>
+          
                 <option value="company">شركة</option>
+                <option value="job_seeker">باحث عن وظيفة</option>
                 <option value="Admin">Admin</option>
             </select>
 
