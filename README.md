@@ -108,7 +108,7 @@ if ($conn->connect_error) {
 ?>
 # Open in browser:  http://localhost:8000/career_gate_website/home.php
 
-User Roles and Workflow
+ 👥 User Roles & Workflow
 Admin
 
 Login: admin_panel/login.php
@@ -143,7 +143,7 @@ My applications: jobseeker_panel/my_applications.php
 
 Update profile: jobseeker_panel/update_account.php
 
-Security Notes
+🔐 Security Notes
 
 Restrict file types and size in upload_cv.php.
 
@@ -151,22 +151,22 @@ Use prepared statements and sanitize inputs.
 
 Protect dashboard pages with session checks ($_SESSION).
 
-Secure the uploads/ directory and consider external storage.
+Secure the uploads/ directory or use external storage.
 
-Deployment Tips
+🌍 Deployment Tips
 
 Use HTTPS.
 
-Set correct permissions for uploads/.
+Set proper permissions for uploads/.
 
-Disable PHP error display in production (display_errors=Off).
+Disable error display in production (display_errors=Off).
 
-Create a limited MySQL user.
+Use a limited MySQL user (not root).
 
-Regular database backups.
+Schedule regular database backups.
 
-Contribution
+🤝 Contribution
 
-Create a new branch for each feature.
+Fork the repo and create a new branch for each feature.
 
-Submit pull requests with a short description of changes.
+Submit pull requests with a clear description of changes.
