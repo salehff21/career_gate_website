@@ -22,6 +22,7 @@ The system provides job posting, user management, applications, and resume uploa
 - HTML / CSS / JavaScript
 
 ---
+```markdown
 
 ## Project Structure
   CAREER_GATE_WEBSITE/
@@ -82,7 +83,7 @@ The system provides job posting, user management, applications, and resume uploa
 └─ showMessage.js
 
 
-
+```
 ---
 
 ## Local Setup
